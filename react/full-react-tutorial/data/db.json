@@ -23,6 +23,18 @@
       "body": "a",
       "author": "mario",
       "id": 4
+    },
+    {
+      "title": "2",
+      "body": "s",
+      "author": "mario",
+      "id": 5
+    },
+    {
+      "title": "hi",
+      "body": "lorem",
+      "author": "mario",
+      "id": 6
     }
   ]
 }
