@@ -1,16 +1,26 @@
-interface AppProps {
-  headerText: string;
-  extraText?: string;
-}
+import { useState } from 'react';
+import { User } from './interfaces';
 
-export default function App({
-  headerText,
-  extraText = 'default text'
-}: AppProps) {
+export default function App() {
+  const [user, setUser] = useState<User | null>(null);
+
+  const fetchUser = () =>
+    setUser({
+      name: 'Mitchel',
+      age: 23,
+      country: 'the Netherlands',
+      address: {
+        street: 'Main st.',
+        number: 88,
+        zip: '21345'
+      },
+      admin: false
+    });
+
   return (
     <>
-      <h1>{headerText}</h1>
-      {extraText && <p>{extraText}</p>}
+      <button onClick={fetchUser}>Fetch user on click</button>
+      {user && <p>{`Welcome ${user.name}`}</p>}
     </>
   );
 }
