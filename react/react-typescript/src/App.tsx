@@ -1,45 +1,25 @@
-import { useState } from 'react';
-
-// Details
-// Shipping
-// Payment
-
-// type CheckoutStep = "Details" | "Shipping" | "Payment";
-
-enum CheckoutStep {
-  Details = "Details",
-  Shipping = "Shipping",
-  Payment = "Payment"
-}
+import DataGrid from "./DataGrid";
 
 export default function App() {
-  const [checkoutStep, setCheckoutStep] = useState<CheckoutStep>(CheckoutStep.Details);
+  const users = [
+    { id: 1, name: "John", age: 55 },
+    { id: 2, name: "Mitchel", age: 23 },
+    { id: 3, name: "Mike", age: 50 },
+  ];
+
+  const orders = [
+    { id: 1, quantity: 5, amount: 75 },
+    { id: 2, quantity: 2, amount: 20 },
+    { id: 3, quantity: 1, amount: 40 },
+  ];
 
   return (
     <>
-      {checkoutStep === CheckoutStep.Details && (
-        <>
-          <h1>Details</h1>
-          <button type="button" onClick={() => setCheckoutStep(CheckoutStep.Shipping)}>
-            Next
-          </button>
-        </>
-      )}
+     <DataGrid items={users} />
 
-      {checkoutStep === 'Shipping' && (
-        <>
-          <h1>Shipping</h1>
-          <button type="button" onClick={() => setCheckoutStep(CheckoutStep.Payment)}>
-            Next
-          </button>
-        </>
-      )}
+     <br />
 
-      {checkoutStep === 'Payment' && (
-        <>
-          <h1>Payment</h1>
-        </>
-      )}
+     <DataGrid items={orders} />
     </>
   );
 }
