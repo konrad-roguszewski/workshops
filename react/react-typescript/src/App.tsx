@@ -1,13 +1,45 @@
-import { useContext } from 'react';
-import { InputValueContext } from './InputValueContext';
+import { useState } from 'react';
+
+// Details
+// Shipping
+// Payment
+
+// type CheckoutStep = "Details" | "Shipping" | "Payment";
+
+enum CheckoutStep {
+  Details = "Details",
+  Shipping = "Shipping",
+  Payment = "Payment"
+}
 
 export default function App() {
-  const { state, dispatch } = useContext(InputValueContext);
+  const [checkoutStep, setCheckoutStep] = useState<CheckoutStep>(CheckoutStep.Details);
 
   return (
     <>
-      <p>Value: {state.inputValue}</p>
-      <button onClick={() => dispatch({ type: "SET_INPUT_VALUE_TO_100"})}>SET VALUE TO 100</button>
+      {checkoutStep === CheckoutStep.Details && (
+        <>
+          <h1>Details</h1>
+          <button type="button" onClick={() => setCheckoutStep(CheckoutStep.Shipping)}>
+            Next
+          </button>
+        </>
+      )}
+
+      {checkoutStep === 'Shipping' && (
+        <>
+          <h1>Shipping</h1>
+          <button type="button" onClick={() => setCheckoutStep(CheckoutStep.Payment)}>
+            Next
+          </button>
+        </>
+      )}
+
+      {checkoutStep === 'Payment' && (
+        <>
+          <h1>Payment</h1>
+        </>
+      )}
     </>
   );
 }
