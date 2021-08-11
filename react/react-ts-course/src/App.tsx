@@ -17,6 +17,8 @@ const App: React.FC = () => {
   // const [characterId, setCharacterId] = React.useState(1);
   const { characterId, setCharacterId } = useCharacterId();
 
+  const inputRef = React.useRef<HTMLInputElement>(null);
+
   React.useEffect(() => {
     const fetchFromApi = async () => {
       setIsLoading(true);
@@ -27,6 +29,11 @@ const App: React.FC = () => {
 
     fetchFromApi();
   }, [characterId]);
+
+  const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
+    console.log(e.currentTarget);
+    setCharacterId(Number(inputRef.current?.value));
+  };
 
   return (
     <Wrapper characterId={characterId}>
@@ -39,9 +46,8 @@ const App: React.FC = () => {
             imgUrl={character.img_url}
             gender={character.gender}
           />
-          <button onClick={() => setCharacterId(Math.floor(Math.random() * 10) + 1)}>
-            Random character
-          </button>
+          <input type="text" ref={inputRef} />
+          <button onClick={handleButtonClick}>Get Character</button>
         </>
       )}
     </Wrapper>
