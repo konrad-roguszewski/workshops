@@ -12,7 +12,7 @@ type Props = {
 const Card = ({ name, imgUrl }: Props) => (
   <Wrapper>
     <p>{name}</p>
-    <p>{imgUrl}</p>
+    <img src={imgUrl} alt="character-thumb" />
   </Wrapper>
 );
 
