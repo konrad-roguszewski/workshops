@@ -8,6 +8,7 @@ import { Character } from './api';
 import { Wrapper } from './App.styles';
 // Components
 import Card from './components/Card';
+import Item from './components/Item';
 // Context hook
 import { useCharacterId } from './context';
 
@@ -45,6 +46,10 @@ const App: React.FC = () => {
             name={character.name}
             imgUrl={character.img_url}
             gender={character.gender}
+          />
+          <Item<typeof character>
+            item={character}
+            onClick={(item) => console.log(item.hair)}
           />
           <input type="text" ref={inputRef} />
           <button onClick={handleButtonClick}>Get Character</button>
