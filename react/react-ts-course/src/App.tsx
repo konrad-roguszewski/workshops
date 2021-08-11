@@ -26,12 +26,16 @@ const App: React.FC = () => {
   }, [characterId]);
 
   return (
-    <Wrapper>
+    <Wrapper characterId={characterId}>
       {isLoading ? (
         <p>Loading...</p>
       ) : (
         <>
-          <Card name={character.name} imgUrl={character.img_url} />
+          <Card
+            name={character.name}
+            imgUrl={character.img_url}
+            gender={character.gender}
+          />
           <button onClick={() => setCharacterId(Math.floor(Math.random() * 10) + 1)}>
             Random character
           </button>

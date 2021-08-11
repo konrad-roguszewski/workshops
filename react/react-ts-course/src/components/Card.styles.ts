@@ -1,5 +1,16 @@
 import styled from 'styled-components';
 
+// Components
+import Gender from './Gender';
+
+type Props = {
+  color: string;
+};
+
+export const StyledGender = styled(Gender)<Props>`
+  background: ${(props) => props.color};
+`;
+
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
