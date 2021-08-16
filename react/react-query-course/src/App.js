@@ -1,4 +1,4 @@
-import { useQuery } from 'react-query';
+import { useMutation, useQuery } from 'react-query';
 import './App.css';
 
 const fetchUsers = async () => {
@@ -9,17 +9,61 @@ const fetchUsers = async () => {
   return response.json();
 };
 
+const addUser = async user => {
+  const response = await fetch('https://reqres.in/api/users', {
+    method: 'POST',
+    body: JSON.stringify({
+      first_name: user.first_name,
+      last_name: user.last_name
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8'
+    }
+  });
+
+  if (!response.ok) {
+    throw new Error('Something went wrong!');
+  }
+
+  return response.json();
+};
+
 function App() {
   // Grab all users
-  const { data: users, isLoading, error } = useQuery('users', fetchUsers);
+  const {
+    data: users,
+    isLoading,
+    error,
+    refetch
+  } = useQuery('users', fetchUsers);
+
+  // Create a mutation for adding a user
+  const {
+    mutate,
+    mutateAsync,
+    isLoading: isAddingUser,
+    errror: addError
+  } = useMutation(addUser);
+
+  const handleAddUser = async () => {
+    const data = await mutateAsync({
+      first_name: 'React Query',
+      last_name: 'Course'
+    });
+    console.log('This was an async mutation');
+    console.log(data);
+    refetch();
+  };
 
   if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>Somrthing went wrong...</p>;
+  if (error || addError) return <p>Somrthing went wrong...</p>;
 
   console.log(users);
 
   return (
     <div className="App">
+      {isAddingUser ? <p>Adding user...</p> : null}
+      <button onClick={handleAddUser}>Add User</button>
       {users.data.map(user => (
         <p key={user.id}>
           {user.first_name} {user.last_name}
