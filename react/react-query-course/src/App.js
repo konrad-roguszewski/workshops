@@ -1,8 +1,8 @@
-import { useMutation, useQuery, useQueryClient } from 'react-query';
+import { useMutation, useInfiniteQuery, useQueryClient } from 'react-query';
 import './App.css';
 
-const fetchUsers = async () => {
-  const response = await fetch('https://reqres.in/api/users');
+const fetchInfiniteUsers = async ({ pageParam = 1 }) => {
+  const response = await fetch(`https://reqres.in/api/users?page=${pageParam}`);
   if (!response.ok) {
     throw new Error('Something went wrong!');
   }
@@ -33,11 +33,13 @@ function App() {
   const queryClient = useQueryClient();
 
   // Grab all users
-  const {
-    data: users,
-    isLoading,
-    error  
-  } = useQuery('users', fetchUsers);
+  const { data, isLoading, isFetching, fetchNextPage, hasNextPage, error } =
+    useInfiniteQuery('users', fetchInfiniteUsers, {
+      getNextPageParam: (lastPage, pages) => {
+        if (lastPage.page < lastPage.total_pages) return lastPage.page + 1;
+        return false;
+      }
+    });
 
   // Create a mutation for adding a user
   const {
@@ -62,19 +64,23 @@ function App() {
   };
 
   if (isLoading) return <p>Loading...</p>;
-  if (error || addError) return <p>Somrthing went wrong...</p>;
+  if (error || addError) return <p>Something went wrong...</p>;
 
-  console.log(users);
+  console.log(data);
 
   return (
     <div className="App">
       {isAddingUser ? <p>Adding user...</p> : null}
       <button onClick={handleAddUser}>Add User</button>
-      {users.data.map(user => (
-        <p key={user.id}>
-          {user.first_name} {user.last_name}
-        </p>
-      ))}
+      {data.pages.map(page =>
+        page.data.map(user => (
+          <p key={user.id}>
+            {user.first_name} {user.last_name}
+          </p>
+        ))
+      )}
+      {isFetching && <p>Loading...</p>}
+      {hasNextPage && <button onClick={fetchNextPage}>Load More</button>}
     </div>
   );
 }
