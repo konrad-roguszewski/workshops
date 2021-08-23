@@ -1,4 +1,5 @@
 import React from 'react';
+import { TextField } from './TextField';
 
 // props
 // hooks
@@ -7,7 +8,7 @@ import React from 'react';
 const App: React.FC = () => {
   return (
     <div>
-      yo
+      <TextField text="hello" person={{firstName: "", lastName: ""}}/>
     </div>
   );
 }
