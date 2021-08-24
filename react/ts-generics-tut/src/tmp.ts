@@ -20,3 +20,13 @@ const last = <T>(arr: T[]): T => {
 const l = last([1, 2, 3]);
 
 const l2 = last<string>(['a', 'b', 'c']);
+
+// example 2
+
+const makeArr = <X, Y = number>(x: X, y: Y): [X, Y] => {
+  return [x, y];
+};
+
+const v = makeArr(5, 6);
+const v2 = makeArr('a', 'b');
+const v3 = makeArr<string | null, number>(null, 5);
