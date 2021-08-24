@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 
 // example 5 - props
 
@@ -7,6 +8,11 @@ interface Props {
 }
 
 const HelloWorld: React.FC<Props> = ({ name }) => {
+
+  // example 6 - useState
+  
+  const [state] = useState<{ fullname: string | null }>({ fullname: '' });
+
   return <div>hello {name}</div>;
 };
 
