@@ -1,3 +1,5 @@
+// Built-in types
+
 // Type Number
 let age = 24;
 
