@@ -12,7 +12,14 @@ interface IState {
 }
 
 function App() {
-  const [people, setPeople] = useState<IState['people']>([]);
+  const [people, setPeople] = useState<IState['people']>([
+    {
+      name: "LeBron James",
+      url: "https://picsum.photos/200",
+      age: 36,
+      note: "test note",
+    }
+  ]);
 
   return (
     <div className="App">
