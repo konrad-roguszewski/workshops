@@ -2,7 +2,23 @@ body {
   font-size: 1.125rem;
   color: #707070;
   margin: 0;
+  background: pink;
 }
+
+/* from a minimum width of 600px and bigger */
+@media (min-width: 600px) and (orientation: landscape) {
+  body {
+    background: orange;
+  }
+}
+
+/* from a minimum width of 600px up to a width of 649px */
+@media (min-width: 600px) and (max-width: 649px) {
+  body {
+    background: purple;
+  }
+}
+
 
 /* Typography */
 
@@ -41,11 +57,6 @@ img {
   justify-content: space-between;
   align-items: flex-start;
   margin: 1em 0;
-  border: 5px solid steelblue;
-}
-
-.col {
-  border: 2px solid magenta;
 }
 
 .col-1 {
