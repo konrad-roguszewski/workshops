@@ -1,4 +1,4 @@
-# Build a Shopping Cart with React and TypeScript - Tutorial
+# Introduction To Responsive Web Design - HTML & CSS Tutorial
 
 Video by freeCodeCamp.org on [Youtube](https://www.youtube.com/watch?v=srvUrASNj0s)
 
