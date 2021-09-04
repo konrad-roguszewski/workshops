@@ -28,11 +28,17 @@ h1 {
   margin: 0;
 }
 
+/* ==========
+Layout
+========== */
+
 header {
   text-align: center;
   background: #f8f8f8;
   padding: 2em 0;
 }
+
+/* navigation */
 
 nav ul {
   list-style: none;
@@ -49,9 +55,18 @@ nav a {
   text-decoration: none;
   color: #707070;
   font-weight: 700;
+  padding: .25em 0;
 }
 
 nav a:focus,
 nav a:hover {
   color: #1792d2;
+}
+
+.current-page {
+  border-bottom: 1px solid #707070;
+}
+
+.current-page:hover {
+  color: #707070;
 }
