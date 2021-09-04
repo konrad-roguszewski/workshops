@@ -11,7 +11,8 @@ h1, p {
 }
 
 h1 {
-  font-size: 24px;
+  font-size: 3rem;
+  margin-bottom: 2em;
 }
 
 p {
@@ -26,7 +27,8 @@ a {
   display: inline-block;
   background: #FFE600;
   color: black;
-  padding: 15px 30px;
+  padding: .5em 1.25em;
+  /* em is relative to the font-size of this element */
   text-align: center;
   text-decoration: none;
   margin-bottom: 50px;
@@ -36,13 +38,13 @@ a {
   background: orange;
 }
 
-/* .btn-big {
+.btn-big {
   font-size: 1.5rem;
 } 
 
 .btn-small {
   font-size: .75rem;
-} */
+}
 
 .accent-color {
   color: #FFE600;
