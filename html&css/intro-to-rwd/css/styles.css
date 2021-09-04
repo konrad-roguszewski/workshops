@@ -1,8 +1,21 @@
 body {
   margin: 0;
-  font-size: 18px;
+  font-size: 10px;
   font-family: 'Lato', sans-serif;
   color: #2e354f;
+}
+
+.section-one {
+  font-size: 2em;
+}
+
+ul {
+  /* 1.5em = 150% */
+  font-size: 1.5em;
+}
+
+li {
+  font-size: 1.5em;
 }
 
 img {
@@ -18,12 +31,12 @@ strong {
 /* Typography */
 
 h1 {
-  font-size: 36px;
+  font-size: 3em;
   margin: 0;
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 2em;
   color: #ef5839;
 }
 
@@ -81,7 +94,7 @@ section {
   width: 90%;
   /* min-width: 500px; */
   margin: 0 auto;
-  border: 2px solid magenta;
+  /* border: 2px solid magenta; */
 }
 
 .section-two {
