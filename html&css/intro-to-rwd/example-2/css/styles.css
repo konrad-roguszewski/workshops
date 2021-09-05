@@ -180,3 +180,13 @@ nav a:hover {
 .article-recent-secondary {
   order: 1;
 }
+
+@media (min-width: 550px) {
+  .article-recent-main {
+    margin-top: -2.5em;
+  }
+
+  .article-info {
+    text-align: right;
+  }
+}
