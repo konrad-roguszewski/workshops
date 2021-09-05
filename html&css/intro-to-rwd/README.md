@@ -6,9 +6,15 @@ Design of example-2 on [AdobeXD](https://xd.adobe.com/spec/75d448ea-569a-4b7e-72
 
 # Notes
 
-How to decide which unit to use?
-
-General rule of thumb:
+How to decide which unit to use? General rule of thumb:
 - Font-size = rem
 - Padding and margin = em
 - Widths = em or percentage
+- Border = px
+
+Main topics:
+- flexbox in general
+- justify-content & align-items (redistributing leftover empty space)
+- flex-direction (switching the main axis)
+- media queries
+- how to build (and style) a navigation
