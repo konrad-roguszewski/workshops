@@ -48,6 +48,16 @@ header {
   padding: 2em 0;
 }
 
+@media (max-width: 675px) {
+  .container-nav {
+    flex-direction: column;
+  }
+
+  header {
+    text-align: center;
+  }
+}
+
 /* navigation */
 
 nav ul {
@@ -79,4 +89,14 @@ nav a:hover {
 
 .current-page:hover {
   color: #707070;
+}
+
+@media (max-width: 675px) {
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav li {
+    margin: .5em 0;
+  }
 }
