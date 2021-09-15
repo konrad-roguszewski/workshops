@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function loadXMLDoc(filename)
+{
+if (window.ActiveXObject)
+  // Create an XMLHttpRequest object
+  {
+  xhttp = new ActiveXObject("Msxml2.XMLHTTP");
+  }
+else
+  {
+  xhttp = new XMLHttpRequest();
+  }
+// Use the open() and send() methods of the XMLHttpRequest object to send a request to a server
+xhttp.open("GET", filename, false);
+try {xhttp.responseType = "msxml-document"} catch(err) {} // Helping IE11
+xhttp.send("");
+// Get the response data as XML data
+return xhttp.responseXML;
+}
+
+function displayResult()
+{
+// Load XML and XSL files
+xml = loadXMLDoc("cdcatalog.xml");
+xsl = loadXMLDoc("cdcatalog.xsl");
+// Test what kind of browser the user has
+// code for IE
+if (window.ActiveXObject || xhttp.responseType == "msxml-document")
+  {
+  // Use the transformNode() method to apply the XSL style sheet to the xml document
+  ex = xml.transformNode(xsl);
+  // Set the body of the current document (id="example") to contain the styled xml document
+  document.getElementById("example").innerHTML = ex;
+  }
+// code for Chrome, Firefox, Opera, etc.
+else if (document.implementation && document.implementation.createDocument)
+  {
+  // Create a new XSLTProcessor object and import the XSL file to it
+  xsltProcessor = new XSLTProcessor();
+  xsltProcessor.importStylesheet(xsl);
+  // Use the transformToFragment() method to apply the XSL style sheet to the xml document
+  resultDocument = xsltProcessor.transformToFragment(xml, document);
+  // Set the body of the current document (id="example") to contain the styled xml document
+  document.getElementById("example").appendChild(resultDocument);
+  }
+}
+</script>
+</head>
+<body onload="displayResult()">
+<div id="example" />
+</body>
+</html>
