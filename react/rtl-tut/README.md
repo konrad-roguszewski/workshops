@@ -8,3 +8,5 @@ Article by Robin Wieruch on [robinwieruch.de](https://www.robinwieruch.de/react-
 - For any element that isn't there yet but will be there eventually, use findBy over getBy or queryBy. If you assert for a missing element, use queryBy. Otherwise default to getBy.
 - All search variants can be extended with the All word. Whereas all of them return an array of elements and can be associated with the search types again.
 - Assertive functions happen on the right hand-side of your assertion. Usually all these assertive functions origin from Jest. However, React Testing Library extends this API with its own assertive functions like toBeInTheDocument.
+- We can use RTL's fireEvent function to simulate interactions of an end user.
+- Whenever possible, use userEvent over fireEvent when using React Testing Library.
