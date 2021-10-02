@@ -7,6 +7,7 @@ describe('App', () => {
   test('renders App component', () => {
     render(<App />);
 
-    expect(screen.getByRole('textbox')).toBeInTheDocument();
+    // So every time you are asserting that an element isn't there, use queryBy. Otherwise default to getBy
+    expect(screen.queryByText(/Searches for JavaScript/)).toBeNull();
   });
 });
