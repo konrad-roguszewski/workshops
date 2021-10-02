@@ -1,38 +1,43 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import axios from 'axios';
+import { render, screen, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import App, { Search } from './App';
+import App from './App';
+
+jest.mock('axios');
 
 describe('App', () => {
-  test('renders App component', async () => {
+  test('fetches stories from an API and displays them', async () => {
+    const stories = [
+      { objectID: '1', title: 'Hello' },
+      { objectID: '2', title: 'React' },
+    ];
+
+    const promise = Promise.resolve({ data: { hits: stories } });
+
+    axios.get.mockImplementationOnce(() => promise);
+
     render(<App />);
 
-    // wait for the user to resolve
-    await screen.findByText(/Signed in as/);
+    await userEvent.click(screen.getByRole('button'));
 
-    expect(screen.queryByText(/Searches for JavaScript/)).toBeNull();
+    await act(() => promise);
 
-    await userEvent.type(screen.getByRole('textbox'), 'JavaScript');
-
-    expect(
-      screen.getByText(/Searches for JavaScript/)
-    ).toBeInTheDocument();
+    expect(screen.getAllByRole('listitem')).toHaveLength(2);
   });
 
-  describe('Search', () => {
-    test('calls the onChange callback handler', async () => {
-      const onChange = jest.fn();
+  test('fetches stories from an API and fails', async () => {
+    axios.get.mockImplementationOnce(() =>
+      Promise.reject(new Error())
+    );
 
-      render(
-        <Search value="" onChange={onChange}>
-          Search
-        </Search>
-      );
+    render(<App />);
 
-      await userEvent.type(screen.getByRole('textbox'), 'JavaScript');
+    await userEvent.click(screen.getByRole('button'));
 
-      expect(onChange).toHaveBeenCalledTimes(10);
-    })
+    const message = await screen.findByText(/Something went wrong/);
+
+    expect(message).toBeInTheDocument();
   });
 });
