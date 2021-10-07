@@ -1,6 +1,8 @@
 # How to use React Testing Library Tutorial
 
 Article by Robin Wieruch on [robinwieruch.de](https://www.robinwieruch.de/react-testing-library)
+<br>
+More in [How to test React-Redux connected Components](https://www.robinwieruch.de/react-connected-component-test)
 
 >Notes:
 - And there is the last resort search type TestId with getByTestId where one needs to assign data-testid attributes in the source code's HTML. After all, getByText and getByRole should be your go-to search types to select elements from your rendered React components with React Testing Library.
