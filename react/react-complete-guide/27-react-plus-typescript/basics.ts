@@ -35,8 +35,8 @@ let people: {
   age: number;
 }[];
 
-// Type inference
+// Type inference and union types
 
-let course = 'React - The Complete Guide';
+let course: string | number = 'React - The Complete Guide';
 
-// course = 123;
+course = 123;
