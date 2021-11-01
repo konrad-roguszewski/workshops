@@ -17,3 +17,7 @@
 - There are two syntaxes for building types:
   - interface (preffered)
   - type (when specific features are needed)
+- With TypeScript, you can create complex types by combining simple ones:
+  - with a union, you can declare that a type could be one of many types
+  - generics provide variables to types
+- In a structural type system, if two objects have the same shape, they are considered to be of the same type. There is no difference between how classes and objects conform to shapes.
