@@ -21,3 +21,4 @@
   - with a union, you can declare that a type could be one of many types
   - generics provide variables to types
 - In a structural type system, if two objects have the same shape, they are considered to be of the same type. There is no difference between how classes and objects conform to shapes.
+- Process of contextual typing - the context that the function occured within informs what type it should have.
