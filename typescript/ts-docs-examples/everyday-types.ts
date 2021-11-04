@@ -28,3 +28,21 @@ names.forEach(function (s) {
 names.forEach((s) => {
   console.log(s.toUpperCase());
 });
+
+// Object Types
+function printCoord(pt: { x: number; y: number }) {
+  console.log("The coordinate's x value is" + pt.x);
+  console.log("The coordinate's y value is" + pt.y);
+}
+printCoord({ x: 3, y: 7 });
+// Object Types - Optional Properties
+function printName(obj: { first: string; last?: string }) {
+  console.log(obj.last.toUpperCase());
+  if (obj.last !== undefined) {
+    console.log(obj.last.toUpperCase());
+  }
+  console.log(obj.last?.toUpperCase());
+}
+printName({ first: "Bob" });
+printName({ first: "Alice", last: "Alisson" });
+
