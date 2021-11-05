@@ -46,3 +46,9 @@ function printName(obj: { first: string; last?: string }) {
 printName({ first: "Bob" });
 printName({ first: "Alice", last: "Alisson" });
 
+// Union Types - Defining a Union Type
+function printId(id: number | string) {
+  console.log("Your ID is: " + id);
+}
+printId(101);
+printId("202");
