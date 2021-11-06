@@ -52,3 +52,22 @@ function printId(id: number | string) {
 }
 printId(101);
 printId("202");
+
+// Union Types - Working with Union Types
+function newPrintId(id: number | string) {
+  if (typeof id === "string") {
+    console.log(id.toUpperCase());
+  } else {
+    console.log(id);
+  }
+}
+function welcomePeople(x: string[] | string) {
+  if(Array.isArray(x)) {
+    console.log('Hello, ' + x.join(' and '));
+  } else {
+    console.log('Welcome lone traveler ' + x);
+  }
+}
+function getFirstThree(x: number[] | string) {
+  return x.slice(0, 3);
+}
