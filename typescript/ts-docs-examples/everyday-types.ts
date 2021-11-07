@@ -71,3 +71,25 @@ function welcomePeople(x: string[] | string) {
 function getFirstThree(x: number[] | string) {
   return x.slice(0, 3);
 }
+
+// Type Aliases
+type Point = {
+  x: number;
+  y: number;
+};
+function newPrintCoord(pt: Point) {
+  console.log("The coordinate's x value is " + pt.x);
+  console.log("The coordinate's y value is " + pt.y);
+}
+newPrintCoord({ x: 100, y: 100 });
+
+type ID = number | string;
+
+declare function getInput(): string;
+declare function sanitize(str: string): string;
+type UserInputSanitizedString = string;
+function sanitizeInput(str: string): UserInputSanitizedString {
+  return sanitize(str);
+}
+let userInput = sanitizeInput(getInput());
+userInput = "new input"
