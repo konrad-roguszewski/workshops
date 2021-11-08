@@ -93,3 +93,14 @@ function sanitizeInput(str: string): UserInputSanitizedString {
 }
 let userInput = sanitizeInput(getInput());
 userInput = "new input"
+
+// Interfaces
+interface NewPoint {
+  x: number;
+  y: number;
+}
+function testPrintCoord(pt: NewPoint) {
+  console.log("The coordinate's x value is " + pt.x);
+  console.log("The coordinate's y value is " + pt.y);
+}
+testPrintCoord({ x: 100, y: 100 });
