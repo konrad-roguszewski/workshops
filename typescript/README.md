@@ -22,3 +22,5 @@
   - generics provide variables to types
 - In a structural type system, if two objects have the same shape, they are considered to be of the same type. There is no difference between how classes and objects conform to shapes.
 - Process of contextual typing - the context that the function occured within informs what type it should have.
+- Type cannot be re-opened to add new properties vs an interface which is always extendable.
+- Use interface until you need to use features from type.
