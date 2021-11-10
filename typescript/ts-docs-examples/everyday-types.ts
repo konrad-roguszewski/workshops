@@ -104,3 +104,11 @@ function testPrintCoord(pt: NewPoint) {
   console.log("The coordinate's y value is " + pt.y);
 }
 testPrintCoord({ x: 100, y: 100 });
+
+// Type Assertions
+const myCanvas = document.getElementById("main_canvas") as HTMLCanvasElement;
+const myAlternativeCanvas = <HTMLCanvasElement>document.getElementById("main_cnavas");
+
+declare const expr: any;
+type T = { a: 1; b: 2; c: 3 };
+const a = (expr as any) as T;
