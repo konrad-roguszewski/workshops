@@ -112,3 +112,30 @@ const myAlternativeCanvas = <HTMLCanvasElement>document.getElementById("main_cna
 declare const expr: any;
 type T = { a: 1; b: 2; c: 3 };
 const a = (expr as any) as T;
+
+// Literal Types
+let changingString = 'Hello World';
+changingString = 'Ola Mundo';
+changingString;
+const constantString = 'Hello World';
+constantString;
+
+let x: 'hello' = 'hello';
+
+function printText(s: string, alignment: 'left' | 'right' | 'center') {
+  // ...
+}
+printText('Hello, world', 'center');
+
+function compare(a: string, b: string): -1 | 0 | 1 {
+  return a === b ? 0 : a > b ? 1 : -1;
+}
+
+interface Options {
+  width: number;
+}
+function configure(x: Options | 'auto') {
+  // ...
+}
+configure({ width: 100 });
+configure("auto");
