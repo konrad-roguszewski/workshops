@@ -24,3 +24,4 @@
 - Process of contextual typing - the context that the function occured within informs what type it should have.
 - Type cannot be re-opened to add new properties vs an interface which is always extendable.
 - Use interface until you need to use features from type.
+- JavaScript has two primitive values used to signal absent or uninitialized value: null and undefined. TypeScript has two corresponding types by the same names. How these types behave depends on whether you have the strictNullChecks option on.
