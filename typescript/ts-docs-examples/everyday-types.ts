@@ -153,3 +153,12 @@ handleRequest(req.url, req.method as 'GET');
 
 const newReq = { url: 'https://example.com', method: 'GET' } as const;
 handleRequest(req.url, req.method);
+
+// null and undefined
+function doSomething(x: string | null) {
+  if (x === null) {
+    // do nothing
+  } else {
+    console.log('Hello, ' + x.toUpperCase());
+  }
+}
