@@ -162,3 +162,9 @@ function doSomething(x: string | null) {
     console.log('Hello, ' + x.toUpperCase());
   }
 }
+
+// Non-null Assertion Operator (Postfix !)
+function liveDangerously(x?: number | null) {
+  // No error
+  console.log(x!.toFixed());
+}
