@@ -27,3 +27,5 @@
 - Use interface until you need to use features from type.
 - JavaScript has two primitive values used to signal absent or uninitialized value: null and undefined. TypeScript has two corresponding types by the same names. How these types behave depends on whether you have the strictNullChecks option on.
 - Enums are a feature added to JavaScript by TypeScript which allows for describing a value which could be one of a set of possible named constants.
+- From ES2020 onwards, there is a primitive in JavaScript used for very large integers, BigInt.
+- There is a primitive in JavaScript used to create a globally unique reference via the function Symbol().
