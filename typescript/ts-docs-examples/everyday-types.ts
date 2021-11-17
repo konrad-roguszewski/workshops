@@ -168,3 +168,11 @@ function liveDangerously(x?: number | null) {
   // No error
   console.log(x!.toFixed());
 }
+
+// Less Common Primitives - bigint
+const oneHundred: bigint = BigInt(100);
+const anotherHundred: bigint = 100n;
+
+// Less Common Primitives - symbol
+const firstName = Symbol("name");
+const secondName = Symbol("name");
