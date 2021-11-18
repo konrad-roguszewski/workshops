@@ -1,4 +1,4 @@
-// Enums - Numeric enums
+// Numeric enums
 enum Direction {
   Up,
   Down,
@@ -15,3 +15,11 @@ function respond(recipent: string, message: UserResponse): void {
   // ...
 }
 respond("Princess Caroline", UserResponse.Yes);
+
+// String enums
+enum newDirection {
+  Up = "UP",
+  Down = "DOWN",
+  Left = "LEFT",
+  Right = "RIGHT",
+}
