@@ -23,3 +23,9 @@ enum newDirection {
   Left = "LEFT",
   Right = "RIGHT",
 }
+
+// Heterogeneous enums
+enum BooleanLikeHeterogeneousEnum {
+  No = 0,
+  Yes = "YES",
+}
