@@ -54,3 +54,19 @@ enum FileAccess {
   ReadWrite = Read | Write,
   G = "123".length,
 }
+
+// Union enums and enum member types
+enum ShapeKind {
+  Circle,
+  Square,
+}
+ 
+interface Circle {
+  kind: ShapeKind.Circle;
+  radius: number;
+}
+ 
+interface Square {
+  kind: ShapeKind.Square;
+  sideLength: number;
+}
