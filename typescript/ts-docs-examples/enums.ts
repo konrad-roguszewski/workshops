@@ -70,3 +70,17 @@ interface Square {
   kind: ShapeKind.Square;
   sideLength: number;
 }
+
+// Enums at runtime
+enum D {
+  X,
+  Y,
+  Z,
+}
+ 
+function f(obj: { X: number }) {
+  return obj.X;
+}
+ 
+// Works, since 'D' has a property named 'X' which is a number.
+f(D);
